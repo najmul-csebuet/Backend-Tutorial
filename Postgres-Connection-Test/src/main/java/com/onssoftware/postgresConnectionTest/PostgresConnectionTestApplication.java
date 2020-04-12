@@ -16,6 +16,7 @@ public class PostgresConnectionTestApplication {
 	public CommandLineRunner dbTest(AccountRepository accRepo) {
 		return args -> {
 			Account acc = new Account();
+			acc.setName("Md Najmul Hasan");
 			accRepo.save(acc);
 		};
 	}
