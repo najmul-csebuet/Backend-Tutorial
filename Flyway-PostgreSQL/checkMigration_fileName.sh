@@ -18,6 +18,8 @@ generateDDL() {
 productionDbName="production_db_demo"
 userName="test"
 password="1234"
+host="localhost"
+port="5432"
 
 pushd ./src/main/resources/db/migration/
 
@@ -35,8 +37,13 @@ do
 done
 migrationFileName="${migrationFileName}.sql"
 
-PGPASSWORD=${password} psql ${productionDbName} -U ${userName} -h localhost -c "DROP DATABASE test_db"
-PGPASSWORD=${password} psql ${productionDbName} -U ${userName} -h localhost -c "CREATE DATABASE test_db"
+# http://postgresguide.com/utilities/psql.html
+# psql -h localhost -U username databasename
+# psql "dbname=dbhere host=hosthere user=userhere password=pwhere port=5432 sslmode=require"
+#psql "dbname=${productionDbName} host=${host} user=${userName} password=${password} port=${port}" -c "DROP DATABASE test_db"
+psql "dbname=${productionDbName} host=${host} user=${userName} password=${password} port=${port}" -c "CREATE DATABASE test_db"
+#PGPASSWORD=${password} psql -h localhost -U ${userName} ${productionDbName} -c "DROP DATABASE test_db"
+#PGPASSWORD=${password} psql -h localhost -U ${userName} ${productionDbName} -c "CREATE DATABASE test_db"
 useDatabase test_db
 
 enableFlyway false
@@ -52,13 +59,14 @@ java -jar build/libs/*.jar
 #ill $(cat ./pid.file)
 
 pushd ./src/main/resources/db/migration
-migra --unsafe postgresql://${userName}:${password}@localhost:5432/${productionDbName} postgresql://${userName}:${password}@localhost:5432/test_db > ${migrationFileName}
+migra --unsafe postgresql://${userName}:${password}@${host}:${port}/${productionDbName} postgresql://${userName}:${password}@${host}:${port}/test_db > ${migrationFileName}
 sed -i '/flyway_schema_history/d' ${migrationFileName}
 sed -i '/^$/d' ${migrationFileName}
 popd
 
 # Now revert
-PGPASSWORD=${password} psql ${productionDbName} -U ${userName} -h localhost -c "DROP DATABASE test_db"
+psql "dbname=${productionDbName} host=${host} user=${userName} password=${password} port=${port}" -c "DROP DATABASE test_db"
+#PGPASSWORD=${password} psql -h localhost -U ${userName} ${productionDbName} -c "DROP DATABASE test_db"
 useDatabase ${productionDbName}
 
 enableFlyway true

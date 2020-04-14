@@ -15,4 +15,6 @@ public class Account {
     @GeneratedValue
     private Long id;
     private String name = "Najmul";
+    private String address = "Najmul";
+    private Integer balance = 100;
 }
