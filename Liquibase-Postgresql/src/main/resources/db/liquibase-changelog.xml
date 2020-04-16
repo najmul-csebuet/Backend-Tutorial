@@ -17,5 +17,8 @@
             <column name="address" type="varchar(255 BYTE)"/>
         </addColumn>
     </changeSet>
-
+    
+<!--    <include file="changelog/V3__Added_new_vua_address.xml" relativeToChangelogFile="true"/>-->
+<!--    <include file="V2__Added_vua_address.txt"/>-->
+    <includeAll path="changelog" relativeToChangelogFile="true"/>
 </databaseChangeLog>
