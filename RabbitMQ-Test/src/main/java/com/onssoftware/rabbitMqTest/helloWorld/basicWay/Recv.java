@@ -1,4 +1,4 @@
-package com.onssoftware.rabbitMqTest;
+package com.onssoftware.rabbitMqTest.helloWorld.basicWay;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -8,14 +8,15 @@ import com.rabbitmq.client.DeliverCallback;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class Consumer {
+public class Recv {
 
     private final static String QUEUE_NAME = "hello";
 
     public void consumeMessage() throws IOException, TimeoutException {
 
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+
+        factory.setHost("192.168.43.21");
         factory.setUsername("test");
         factory.setPassword("1234");
 
