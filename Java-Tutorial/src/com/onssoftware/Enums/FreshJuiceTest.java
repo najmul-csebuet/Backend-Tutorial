@@ -25,7 +25,7 @@ public class FreshJuiceTest {
         Test t = Test.T;
         t.test();
 
-        int h;
+        int h = 1;
         System.out.println(h);
     }
 }
