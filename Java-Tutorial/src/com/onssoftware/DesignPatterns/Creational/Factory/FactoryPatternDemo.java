@@ -1,13 +1,13 @@
-package com.onssoftware.DesignPatterns.Creational.FactoryPattern;
+package com.onssoftware.DesignPatterns.Creational.Factory;
 
-public class FactoryPattern {
+public class FactoryPatternDemo {
 
     public static void main(String[] args) {
 
         ShapeFactory shapeFactory = new ShapeFactory();
-        shapeFactory.getShape(ShapeNames.Rectangle.toString()).draw();
-        shapeFactory.getShape(ShapeNames.Square.toString()).draw();
-        shapeFactory.getShape(ShapeNames.Circle.toString()).draw();
+        shapeFactory.getShape(ShapeType.Rectangle).draw();
+        shapeFactory.getShape(ShapeType.Square).draw();
+        shapeFactory.getShape(ShapeType.Circle).draw();
     }
 }
 
@@ -40,13 +40,10 @@ class Circle implements Shape {
 }
 
 class ShapeFactory {
-    public Shape getShape(String shapeType) {
 
-        /*if (shapeType == null) {
-            return null;
-        }*/
+    public Shape getShape(ShapeType shapeType) {
 
-        switch (shapeType) {
+        switch (shapeType.toString()) {
             case "Rectangle":
                 return new Rectangle();
             case "Square":
@@ -59,6 +56,6 @@ class ShapeFactory {
     }
 }
 
-enum ShapeNames {
+enum ShapeType {
     Rectangle, Square, Circle
 }
