@@ -30,7 +30,6 @@ dependencies {
 	//querydsl stuffs
 	implementation 'com.querydsl:querydsl-mongodb:4.3.1'
 	annotationProcessor "com.querydsl:querydsl-apt:4.3.1:jpa"
-	//annotationProcessor 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	annotationProcessor 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
