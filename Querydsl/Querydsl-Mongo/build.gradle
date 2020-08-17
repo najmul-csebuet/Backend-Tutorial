@@ -29,9 +29,7 @@ dependencies {
 
 	//querydsl stuffs
 	implementation 'com.querydsl:querydsl-mongodb:4.3.1'
-	//implementation 'org.hibernate:hibernate-annotations:3.5.6-Final'
 	annotationProcessor "com.querydsl:querydsl-apt:4.3.1:jpa"
-	//annotationProcessor "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final"
 	//annotationProcessor 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	annotationProcessor 'org.springframework.boot:spring-boot-starter-data-jpa'
 
