@@ -1,4 +1,4 @@
-package com.onssoftware.querydslJPA;
+package com.onssoftware.querydslJPA.model;
 
 import lombok.Getter;
 import lombok.Setter;

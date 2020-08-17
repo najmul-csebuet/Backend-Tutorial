@@ -19,21 +19,23 @@ repositories {
 }
 
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
+
+	//lombok stuffs
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	//querydsl stuffs
+	implementation 'com.querydsl:querydsl-jpa:4.3.1'
+	annotationProcessor 'com.querydsl:querydsl-apt:4.3.1:jpa'
+	annotationProcessor 'org.springframework.boot:spring-boot-starter-data-jpa'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-
-	// Added by me
-	// https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa
-	implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '4.3.1'
-	// https://mvnrepository.com/artifact/com.querydsl/querydsl-apt
-	annotationProcessor ("com.querydsl:querydsl-apt:4.3.1:jpa")
-	annotationProcessor ("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 test {
