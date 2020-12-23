@@ -11,6 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.annotation.security.RunAs;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
+//@SpringBootTest
 public class TestJUnit {
 
     //@Mock
@@ -25,6 +27,7 @@ public class TestJUnit {
 
     @Test
     public void checkingAdd() {
+        System.out.println("Bismillah");
         assertEquals(8,4+4);
     }
 
