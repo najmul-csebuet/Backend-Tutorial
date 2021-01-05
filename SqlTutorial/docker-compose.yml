@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:latest
+    volumes: 
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "test_db"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "1234"
+  # mysql-workbench:
+  #   image: ghcr.io/linuxserver/mysql-workbench
+  #   container_name: mysql-workbench
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Asia/Dhaka
+  #   volumes:
+  #     - ./config:/config
+  #   ports:
+  #     - 3000:3000
+  #   cap_add:
+  #     - IPC_LOCK
+  #   restart: unless-stopped
+volumes:
+  db_data: {}
