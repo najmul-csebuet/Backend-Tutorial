@@ -1,0 +1,4 @@
+npm i express
+npm -g i nodemon
+export PORT=5000
+npm i joi

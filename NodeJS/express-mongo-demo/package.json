@@ -1,0 +1,20 @@
+{
+  "name": "express-mongo-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "mongoose": "^5.12.0",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

@@ -1,0 +1,7 @@
+npm i express mongoose nodemon joi
+npm i --save-dev dotenv
+
+sudo netstat -lntp | grep 3000
+sudo kill -9 939
+
+docker run -d --rm --name mongo-docker -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=1234 mongo:latest
