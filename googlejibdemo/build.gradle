@@ -19,8 +19,8 @@ jib {
 	to {
 		image 'najmulcsebuet/test:latest1'
 		auth {
-			username 'najmulcsebuet'
-			password 'NajDoc0=-'
+			username 'user'
+			password 'password'
 		}
 	}
 }
