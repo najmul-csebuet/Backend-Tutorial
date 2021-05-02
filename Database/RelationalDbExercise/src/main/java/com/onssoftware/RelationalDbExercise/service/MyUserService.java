@@ -2,6 +2,7 @@ package com.onssoftware.RelationalDbExercise.service;
 
 import com.onssoftware.RelationalDbExercise.model.MyUser;
 import com.onssoftware.RelationalDbExercise.repository.MyUserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MyUserService {
-    @Autowired
-    private MyUserRepository myUserRepository;
+
+    private final MyUserRepository myUserRepository;
 
     public ResponseEntity<MyUser> saveUser(MyUser myUser) {
         if(myUser.getName().isEmpty()) {
