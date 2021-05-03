@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+    webapp:
+        build: .
+        image: ang/test
+        container_name: angtest
+        ports: 
+        - 80:80/tcp

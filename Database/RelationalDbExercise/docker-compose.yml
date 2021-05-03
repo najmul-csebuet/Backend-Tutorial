@@ -29,3 +29,12 @@ services:
       - "8081:8081"
     depends_on:
       - db
+
+  webapp:
+    build: ./my-app
+    image: ang/test
+    container_name: angtest
+    ports:
+      - 80:80/tcp
+    depends_on:
+      - api

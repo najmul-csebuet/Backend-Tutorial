@@ -10,9 +10,8 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-@ActiveProfiles("test")
-//@DataJpaTest
+//@ActiveProfiles("test")
+@DataJpaTest
 class RelationalDbExerciseApplicationTests {
 
 	@Autowired
