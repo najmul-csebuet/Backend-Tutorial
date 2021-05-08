@@ -18,11 +18,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 //@ActiveProfiles("test")
-@DataJpaTest
+//@DataJpaTest
 //@SpringBootTest
 @Import(MyUserService.class)
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +32,7 @@ class RelationalDbExerciseApplicationTests {
 	@Autowired
 	private MyUserService myUserService;
 
-	@Test
+	/*@Test
 	void contextLoads() {
 		Address address = new Address("114/2", "Borobari", "Mymensingh");
 		MyUser asd = new MyUser("asd", address);
@@ -39,7 +40,7 @@ class RelationalDbExerciseApplicationTests {
 		assertThat(d.getBody().getId()).isNull();
 		Integer n = null;
 		assertThat(n).isNull();
-	}
+	}*/
 
 	@Mock
 	private MyUserRepository myUserRepository;
@@ -49,10 +50,13 @@ class RelationalDbExerciseApplicationTests {
 
 	@Test
 	void mockTest() {
-		Address address = new Address("114/2", "Borobari", "Mymensingh");
-		MyUser asd = new MyUser("asd", address);
-		when(myUserService1.saveUser(asd)).thenReturn(new ResponseEntity<>(asd, HttpStatus.OK));
-		var d = myUserService1.saveUser(asd);
-		assertThat(d.getBody().getId()).isNull();
+		assertNotNull(myUserRepository);
+		assertNotNull(myUserService1);
+		assertNotNull(myUserService1.myUserRepository);
+//		Address address = new Address("114/2", "Borobari", "Mymensingh");
+//		MyUser asd = new MyUser("asd", address);
+//		when(myUserService1.saveUser(asd)).thenReturn(new ResponseEntity<>(asd, HttpStatus.OK));
+//		var d = myUserService1.saveUser(asd);
+//		assertThat(d.getBody().getId()).isNull();
 	}
 }

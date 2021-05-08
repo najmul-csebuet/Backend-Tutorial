@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MyUserService {
 
-    private final MyUserRepository myUserRepository;
+    public final MyUserRepository myUserRepository;
 
     public ResponseEntity<MyUser> saveUser(MyUser myUser) {
         if(myUser.getName().isEmpty()) {
