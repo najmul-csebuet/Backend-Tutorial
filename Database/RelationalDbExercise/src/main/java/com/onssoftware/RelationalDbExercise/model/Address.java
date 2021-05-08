@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Address {
     @Id
@@ -23,4 +22,10 @@ public class Address {
     private String houseNo;
     private String road;
     private String city;
+
+    public Address(String houseNo, String road, String city) {
+        this.houseNo = houseNo;
+        this.road = road;
+        this.city = city;
+    }
 }
