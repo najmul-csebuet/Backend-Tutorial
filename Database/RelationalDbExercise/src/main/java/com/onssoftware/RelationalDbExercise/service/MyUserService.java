@@ -17,9 +17,14 @@ public class MyUserService {
 
     public final MyUserRepository myUserRepository;
 
+    public MyUser saveUserNew() {
+        return new MyUser();
+    }
+
     public ResponseEntity<MyUser> saveUser(MyUser myUser) {
-        if(myUser.getName().isEmpty()) {
-            return new ResponseEntity<>(myUser, HttpStatus.BAD_REQUEST);
+        if(myUser == null || myUser.getName().isEmpty()) {
+            return ResponseEntity.badRequest().body(myUser);
+            /*return new ResponseEntity<>(myUser, HttpStatus.BAD_REQUEST);*/
         }
 
         if(myUser.getAddress() == null) {

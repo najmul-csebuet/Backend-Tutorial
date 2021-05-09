@@ -1,4 +1,4 @@
-package com.onssoftware.RelationalDbExercise;
+package com.onssoftware.RelationalDbExercise.DataJpaTest;
 
 import com.onssoftware.RelationalDbExercise.model.Address;
 import com.onssoftware.RelationalDbExercise.model.MyUser;
@@ -23,40 +23,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 //@ActiveProfiles("test")
-//@DataJpaTest
+@DataJpaTest
 //@SpringBootTest
 @Import(MyUserService.class)
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
 class RelationalDbExerciseApplicationTests {
 
 	@Autowired
 	private MyUserService myUserService;
 
-	/*@Test
-	void contextLoads() {
-		Address address = new Address("114/2", "Borobari", "Mymensingh");
-		MyUser asd = new MyUser("asd", address);
-		var d = myUserService.saveUser(asd);
-		assertThat(d.getBody().getId()).isNull();
-		Integer n = null;
-		assertThat(n).isNull();
-	}*/
-
-	@Mock
+	@Autowired
 	private MyUserRepository myUserRepository;
 
-	@InjectMocks
-	private MyUserService myUserService1;
-
 	@Test
-	void mockTest() {
+	void contextLoads() {
 		assertNotNull(myUserRepository);
-		assertNotNull(myUserService1);
-		assertNotNull(myUserService1.myUserRepository);
-//		Address address = new Address("114/2", "Borobari", "Mymensingh");
-//		MyUser asd = new MyUser("asd", address);
-//		when(myUserService1.saveUser(asd)).thenReturn(new ResponseEntity<>(asd, HttpStatus.OK));
-//		var d = myUserService1.saveUser(asd);
-//		assertThat(d.getBody().getId()).isNull();
+		assertNotNull(myUserService);
+		assertNotNull(myUserService.myUserRepository);
+
+		Address address = new Address("114/2", "Borobari", "Mymensingh");
+		MyUser asd = new MyUser("asd", address);
+		/*asd = myUserRepository.save(asd);
+		assertThat(asd.getId()).isNotNull();*/
+		var d = myUserService.saveUser(asd);
+		assertThat(d.getBody().getId()).isNotNull();
 	}
 }
