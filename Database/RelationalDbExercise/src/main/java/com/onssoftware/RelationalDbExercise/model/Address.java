@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -22,6 +21,9 @@ public class Address {
     private String houseNo;
     private String road;
     private String city;
+
+    @OneToOne(mappedBy = "address")
+    private MyUser myUser;
 
     public Address(String houseNo, String road, String city) {
         this.houseNo = houseNo;

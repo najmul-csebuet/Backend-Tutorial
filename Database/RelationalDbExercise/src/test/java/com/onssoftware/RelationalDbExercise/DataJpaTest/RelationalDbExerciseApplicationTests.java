@@ -43,9 +43,8 @@ class RelationalDbExerciseApplicationTests {
 
 		Address address = new Address("114/2", "Borobari", "Mymensingh");
 		MyUser asd = new MyUser("asd", address);
-		/*asd = myUserRepository.save(asd);
-		assertThat(asd.getId()).isNotNull();*/
-		var d = myUserService.saveUser(asd);
-		assertThat(d.getBody().getId()).isNotNull();
+		asd = myUserService.saveUser(asd).getBody();
+		var d = myUserService.getUser(asd.getId());
+		assertThat(d.getBody().getAddress()).isNotNull();
 	}
 }

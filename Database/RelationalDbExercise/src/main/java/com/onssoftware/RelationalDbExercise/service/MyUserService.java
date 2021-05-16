@@ -48,4 +48,8 @@ public class MyUserService {
         List<MyUser> all = myUserRepository.findAll();
         return new ResponseEntity<>(all, HttpStatus.OK);
     }
+
+    public void deleteById(long id) {
+        myUserRepository.deleteById(id);
+    }
 }

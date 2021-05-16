@@ -22,19 +22,19 @@ services:
 #      - POSTGRES_USER=postgres
 #      - POSTGRES_PASSWORD=1234
 #
-  api:
-    build: .
-    container_name: "RdeApi"
-    ports:
-      - "8081:8081"
-    depends_on:
-      - db
+#  api:
+#    build: .
+#    container_name: "RdeApi"
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - db
 
-  webapp:
-    build: ./my-app
-    image: ang/test
-    container_name: angtest
-    ports:
-      - 80:80/tcp
-    depends_on:
-      - api
+#  webapp:
+#    build: ./my-app
+#    image: ang/test
+#    container_name: angtest
+#    ports:
+#      - 80:80/tcp
+#    depends_on:
+#      - api
