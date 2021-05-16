@@ -22,7 +22,7 @@ public class Address {
     private String road;
     private String city;
 
-    @OneToOne(mappedBy = "address")
+    @ManyToOne
     private MyUser myUser;
 
     public Address(String houseNo, String road, String city) {

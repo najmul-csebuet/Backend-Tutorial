@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class RelationalDbExerciseApplication {
 
@@ -23,7 +25,8 @@ public class RelationalDbExerciseApplication {
 			for (int i = 0; i < 5; i++) {
 				String name = i + "";
 				Address address = new Address(name, name, name);
-				MyUser myUser = new MyUser(name, address);
+				Address address2 = new Address(name, name, name);
+				MyUser myUser = new MyUser(name, Arrays.asList(address, address2));
 				address.setMyUser(myUser);
 				ResponseEntity<MyUser> entity = myUserService.saveUser(myUser);
 				System.out.println(entity);

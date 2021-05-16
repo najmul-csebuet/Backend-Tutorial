@@ -3,10 +3,9 @@ package com.onssoftware.RelationalDbExercise.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Getter
@@ -19,12 +18,18 @@ public class MyUser {
     private String name;
 
 //    @OneToOne(orphanRemoval = true)
-    @OneToOne(cascade = {CascadeType.PERSIST})
+//    @OneToOne(cascade = {CascadeType.PERSIST})
 //    @JoinColumn(name = "Bismillah", referencedColumnName = "id")
-    private Address address;
+    @OneToMany(cascade = {CascadeType.PERSIST})
+    private Set<Address> addressSet;
 
     public MyUser(String name, Address address) {
         this.name = name;
-        this.address = address;
+        this.addressSet = new HashSet<>(Collections.singletonList(address));
+    }
+
+    public MyUser(String name, List<Address> addressSet) {
+        this.name = name;
+        this.addressSet = new HashSet<>(addressSet);
     }
 }

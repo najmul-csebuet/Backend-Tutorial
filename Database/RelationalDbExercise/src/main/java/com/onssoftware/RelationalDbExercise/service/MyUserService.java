@@ -3,7 +3,6 @@ package com.onssoftware.RelationalDbExercise.service;
 import com.onssoftware.RelationalDbExercise.model.MyUser;
 import com.onssoftware.RelationalDbExercise.repository.MyUserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class MyUserService {
             /*return new ResponseEntity<>(myUser, HttpStatus.BAD_REQUEST);*/
         }
 
-        if(myUser.getAddress() == null) {
+        if(myUser.getAddressSet() == null) {
             return new ResponseEntity<>(myUser, HttpStatus.BAD_REQUEST);
         }
 
