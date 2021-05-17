@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 @SpringBootApplication
 public class RelationalDbExerciseApplication {
@@ -34,6 +35,8 @@ public class RelationalDbExerciseApplication {
 
 			//myUserService.deleteById(2L);
 			//addressRepository.deleteById(2L);
+			MyUser myUser = myUserService.myUserRepository.findById(1L).get();
+			myUser.getAddressSet().add(new Address());
 			System.out.println("sf");
 		};
 	}

@@ -20,7 +20,7 @@ public class MyUser {
 //    @OneToOne(orphanRemoval = true)
 //    @OneToOne(cascade = {CascadeType.PERSIST})
 //    @JoinColumn(name = "Bismillah", referencedColumnName = "id")
-    @OneToMany(cascade = {CascadeType.PERSIST})
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Set<Address> addressSet;
 
     public MyUser(String name, Address address) {
