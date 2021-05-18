@@ -1,10 +1,14 @@
-DROP TABLE dependents;
-DROP TABLE employees;
-DROP TABLE departments;
-DROP TABLE locations;
-DROP TABLE countries;
-DROP TABLE regions;
-DROP TABLE jobs;
+-- DROP DATABASE IF EXISTS `test_db`;
+-- CREATE DATABASE `test_db`; 
+-- USE test_db;
+
+DROP TABLE IF EXISTS dependents;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS countries;
+DROP TABLE IF EXISTS regions;
+DROP TABLE IF EXISTS jobs;
 
 CREATE TABLE regions (
 	region_id SERIAL PRIMARY KEY,
