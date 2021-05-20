@@ -9,7 +9,7 @@ services:
       - 5432:5432
     volumes:
 #      - $HOME/docker/volumes/postgres/:/var/lib/postgresql/data
-      - ./postgresql_data:/var/lib/postgresql/data
+      - $HOME/docker/volumes/postgresql_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: test_db
       POSTGRES_USER: test
@@ -19,7 +19,7 @@ services:
     image: mysql:latest
     container_name: "mysql-docker"
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - $HOME/docker/volumes/mysql_data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
