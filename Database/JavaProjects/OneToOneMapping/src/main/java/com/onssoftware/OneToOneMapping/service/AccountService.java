@@ -14,4 +14,12 @@ public class AccountService {
     public Account save(Account acc) {
         return accountRepository.save(acc);
     }
+
+    public void delete(long l) {
+        accountRepository.deleteById(l);
+    }
+
+    public Account findOne() {
+        return accountRepository.findAll().get(0);
+    }
 }

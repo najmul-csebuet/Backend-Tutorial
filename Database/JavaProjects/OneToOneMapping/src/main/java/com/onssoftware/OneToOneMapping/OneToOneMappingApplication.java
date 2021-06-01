@@ -20,14 +20,16 @@ public class OneToOneMappingApplication {
 	CommandLineRunner initDb(AccountService accountService) {
 		return args -> {
 
-			var address = new Address();
+			/*var address = new Address();
 			address.setName("Mymensingh");
 
 			var acc = new Account();
 			acc.setName("Saad");
 			acc.setAddress(address);
 
-			accountService.save(acc);
+			accountService.save(acc);*/
+			Account a = accountService.findOne();
+			accountService.delete(a.getId());
 		};
 	}
 }

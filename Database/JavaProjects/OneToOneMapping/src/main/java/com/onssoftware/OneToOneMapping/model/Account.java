@@ -18,6 +18,7 @@ public class Account {
 
     private String name;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    //@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST}, mappedBy = '')
     private Address address;
 }
