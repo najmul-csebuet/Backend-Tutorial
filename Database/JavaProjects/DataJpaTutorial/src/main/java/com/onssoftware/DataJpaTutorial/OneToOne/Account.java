@@ -21,6 +21,6 @@ public class Account {
     //@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     //@OneToOne(cascade = {CascadeType.ALL})
     //@JoinColumn(name = "Test")
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
     private Address address;
 }

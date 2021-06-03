@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.transaction.Transactional;
+
 @SpringBootApplication
 public class DataJpaTutorialApplication {
 
@@ -17,23 +19,28 @@ public class DataJpaTutorialApplication {
 	}
 
 	@Bean
+	@Transactional
 	CommandLineRunner initDb(AccountService accountService, AddressRepository addressRepository) {
 		return args -> {
 
-			var address = new Address();
+			/*var address = new Address();
 			address.setName("Mymensingh");
 
 			var acc = new Account();
 			acc.setName("Saad");
 			acc.setAddress(address);
 
+			accountService.save(acc);*/
+
 			//address.setAccount(acc);
 
-			accountService.save(acc);
+
 			//addressRepository.save(address);
 
 			Account a = accountService.findOne();
-			accountService.delete(a.getId());
+			var aa = a.getAddress();
+			System.out.println(aa.getName());
+			//accountService.delete(1L);
 		};
 	}
 }
