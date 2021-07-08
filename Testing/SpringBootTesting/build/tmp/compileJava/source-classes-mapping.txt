@@ -1,0 +1,4 @@
+com/onssoftware/SpringBootTesting/SpringBootTestingApplication.java
+ com.onssoftware.SpringBootTesting.SpringBootTestingApplication
+com/onssoftware/SpringBootTesting/MyController.java
+ com.onssoftware.SpringBootTesting.MyController
