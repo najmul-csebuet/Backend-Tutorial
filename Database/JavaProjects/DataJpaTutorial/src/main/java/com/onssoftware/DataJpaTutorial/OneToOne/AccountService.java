@@ -1,5 +1,6 @@
 package com.onssoftware.DataJpaTutorial.OneToOne;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -27,5 +28,14 @@ public class AccountService {
 
     public Account findOne() {
         return accountRepository.findAll().get(0);
+    }
+
+    public void test() {
+
+        Sort.TypedSort<Account> typedSort = Sort.sort(Account.class);
+        Sort sort = typedSort.by(Account::getAddress).ascending().and(typedSort.by(Account::getName)).descending();
+
+//        QSort sort = QSort.by(QPerson.firstname.asc())
+//                .and(QSort.by(QPerson.lastname.desc()));
     }
 }
