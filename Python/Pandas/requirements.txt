@@ -1,1 +1,2 @@
-pandas~=1.2.5
+pandas
+jupyterlab
